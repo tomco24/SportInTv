@@ -1,7 +1,8 @@
 import {combineReducers} from 'redux';
+import MatchesReducer from './matches';
 
 const reducers=combineReducers({
-    loading:false
+    matches:MatchesReducer
 });
 
 export default reducers;
