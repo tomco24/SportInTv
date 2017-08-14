@@ -13,7 +13,7 @@ class HomeContainer extends React.Component {
         console.log(JSON.stringify(match));
         return(
             <View>
-                <Text>kdd</Text>
+                <Text>{match.title}</Text>
             </View>
         )
     }

@@ -4,9 +4,7 @@ import HomeContainer from '../containers/Home';
 
 const HomeScreen = () => {
     return (
-        <View>
             <HomeContainer />
-        </View>
     );
 };
 
