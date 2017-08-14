@@ -14,7 +14,7 @@ class HomeContainer extends React.Component {
         }
     }
     renderRow(match){
-        //console.log(JSON.stringify(match));
+        console.log(JSON.stringify(match.date));
         return(
             <View>
                 <Text>{match.title}</Text>

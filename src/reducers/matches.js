@@ -4,6 +4,7 @@ import {
     START_LOADING
 
 } from '../actions/types';
+import {convertDate} from '../utils';
 
 const INITIAL_STATE={
     loading:true,
@@ -17,9 +18,13 @@ export default function(state=INITIAL_STATE,action){
                 data:action.payload
             }
         case SELECT_MATCHES_FROM_SPORT_SUCCESS:
+        const data=action.payload.map((match)=>{
+            match.date=convertDate(match.date)
+            return match;
+        })
             return{
                 loading:false,
-                data:action.payload
+                data:data
             }
         case START_LOADING:
             return{
