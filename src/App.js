@@ -4,6 +4,7 @@ import { StyleSheet, View,StatusBar } from 'react-native';
 import { NavigationBar, Title,Examples} from '@shoutem/ui'
 import {Provider} from 'react-redux';
 import store from './store';
+import {Navigator} from './Router';
 
 export default class App extends React.Component {
   constructor(props){
@@ -38,10 +39,7 @@ export default class App extends React.Component {
 
     return (
       <Provider store={store}>
-        <View style={{flex: 1}}>
-        <Examples />
-        <StatusBar barStyle="default" hidden={false} />
-      </View>
+       <Navigator/>
       </Provider>
 
     );
