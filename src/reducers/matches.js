@@ -1,7 +1,8 @@
 import {LOAD_MATCHES_SUCCESS} from '../actions/types';
 
 const INITIAL_STATE={
-    loading:true
+    loading:true,
+    data:[]
 }
 export default function(state=INITIAL_STATE,action){
     switch(action.type){

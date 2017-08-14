@@ -1,12 +1,11 @@
 import React from 'react';
-import {View,Text} from 'react-native'
+import {View,Text} from 'react-native';
+import HomeContainer from '../containers/Home';
 
 const HomeScreen = () => {
     return (
         <View>
-            <Text>
-                HOmeScreen
-            </Text>
+            <HomeContainer />
         </View>
     );
 };
