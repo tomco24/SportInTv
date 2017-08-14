@@ -1,4 +1,9 @@
-import {LOAD_MATCHES_SUCCESS,SELECT_MATCHES_FROM_SPORT_SUCCESS} from '../actions/types';
+import {
+    LOAD_MATCHES_SUCCESS,
+    SELECT_MATCHES_FROM_SPORT_SUCCESS,
+    START_LOADING
+
+} from '../actions/types';
 
 const INITIAL_STATE={
     loading:true,
@@ -13,8 +18,13 @@ export default function(state=INITIAL_STATE,action){
             }
         case SELECT_MATCHES_FROM_SPORT_SUCCESS:
             return{
-                loading:true,
+                loading:false,
                 data:action.payload
+            }
+        case START_LOADING:
+            return{
+                loading:true,
+                data:[]
             }
             
     }

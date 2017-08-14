@@ -9,6 +9,7 @@ class SportSelector extends Component {
                 { title: 'Futbal', value: 'Futbal'},
                 { title: 'Basketbal', value: 'Basketbal'},
                 { title: 'Hokej', value: 'Hokej'},
+                { title: 'Tenis', value: 'Tenis'},
             ]
         }
     }

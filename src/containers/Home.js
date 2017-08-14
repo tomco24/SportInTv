@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {loadMatches,loadMatchesSuccess} from '../actions';
+import {loadMatches,selectMatchesFromSport,startLoading} from '../actions';
 import {ListView,Screen,View,Text} from '@shoutem/ui';
 import SportSelector from '../components/SportSelector';
 
@@ -9,11 +9,12 @@ class HomeContainer extends React.Component {
     constructor(props){
         super(props);
         this.state={
-            actualSport:null
+            actualSport:null,
+            loading:true
         }
     }
     renderRow(match){
-        console.log(JSON.stringify(match));
+        //console.log(JSON.stringify(match));
         return(
             <View>
                 <Text>{match.title}</Text>
@@ -21,13 +22,15 @@ class HomeContainer extends React.Component {
         )
     }
     componentDidMount() {
-        this.props.load();
+        this.props.loadSport('Futbal');
        
     }
     handleSportSelection(sport){
         this.setState({actualSport:sport});
         console.log(JSON.stringify(this.state));
         console.log(sport);
+        this.props.clearDataAndStartLoading();
+        this.props.loadSport(sport.value);
     }
     
     render() {
@@ -56,7 +59,9 @@ function mapStateToProps(state){
 }
 const mapDispatchToProps=(dispatch)=>{
     return {
-        load: () => (dispatch(loadMatches()))
+        load: () => (dispatch(loadMatches())),
+        loadSport: (sport) => (dispatch(selectMatchesFromSport(sport))),
+        clearDataAndStartLoading: () => (dispatch(startLoading()))
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(HomeContainer);
