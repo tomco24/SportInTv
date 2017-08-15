@@ -65,7 +65,7 @@ class HomeContainer extends React.Component {
             const { action, year, month, day } = await DatePickerAndroid.open({
                 // Use `new Date()` for current date.
                 // May 25 2020. Month 0 is January.
-                date: new Date()
+                date: moment.unix(this.props.currentDate).toDate()
             });
             if (action !== DatePickerAndroid.dismissedAction) {
                 const timestamp=moment({year,day,month}).unix();
