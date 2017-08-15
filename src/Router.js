@@ -6,7 +6,8 @@ export const Navigator = StackNavigator({
     Home: {
         screen: HomeScreen,
         navigationOptions: {
-            title: 'Home'
+            title: 'Home',
+            header:null
         }
     }
 }, {
@@ -15,4 +16,4 @@ export const Navigator = StackNavigator({
                 marginTop:20
             }
         }
-    });
+});
