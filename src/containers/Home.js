@@ -86,6 +86,9 @@ class HomeContainer extends React.Component {
             <Screen>
                 <NavigationBar
                     styleName="inline"
+                    style={{container:{
+                        marginTop:20
+                    }}}
                     centerComponent={
                         <Title styleName="md-gutter v-center">{formatDate(this.props.currentDate)}</Title>
                     }
