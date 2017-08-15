@@ -20,3 +20,16 @@ export function formatDate(timestamp){
 }
 
 
+export function mapMatches(match){
+    match.date=convertDate(match.date);
+    let genders=[];
+    genders['M']=0;
+    genders['Ž']=1;
+    match.gender=genders[match.gender];
+    if (match.sport==='Tenis'){
+        match.title=match.title+" - " + match.round;
+    }
+    return match;
+}
+
+

@@ -4,7 +4,7 @@ import {
     START_LOADING
 
 } from '../actions/types';
-import {convertDate,filterForDate} from '../utils';
+import {convertDate,filterForDate,mapMatches} from '../utils';
 
 const INITIAL_STATE={
     loading:true,
@@ -24,10 +24,7 @@ export default function(state=INITIAL_STATE,action){
             return filterForDate(match.date,action.payload.selectDate)
             //return true;
         })
-        data=data.map((match)=>{
-            match.date=convertDate(match.date)
-            return match;
-        })
+        data=data.map(mapMatches);
             return{
                 loading:false,
                 data:data
