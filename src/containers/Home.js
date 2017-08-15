@@ -9,6 +9,7 @@ import {
 import SportSelector from '../components/SportSelector';
 import moment from 'moment';
 import {formatDate} from '../utils';
+import ListItem from '../components/ListItem';
 
 class HomeContainer extends React.Component {
     constructor(props) {
@@ -21,21 +22,7 @@ class HomeContainer extends React.Component {
     renderRow(match) {
         //console.log(JSON.stringify(match.date));
         return (
-            <View style={{ backgroundColor: 'white', flex: 1 }}
-                styleName="horizontal v-center">
-                <View style={{ flex: 60 }} styleName="vertical md-gutter">
-                    <Subtitle styleName="multiline v-center">
-                        {match.title}
-                    </Subtitle>
-                    <View styleName="horizontal v-center space-between">
-                        <Caption>{match.competition}</Caption>
-                        <Caption>{match.station}</Caption>
-                    </View>
-                </View>
-                <View style={{ flex: 40 }} styleName="vertical v-start h-center">
-                    <Subtitle styleName="bold">{match.date.time}</Subtitle>
-                </View>
-            </View>
+            <ListItem match={match}/>
         )
     }
     renderHeader() {
