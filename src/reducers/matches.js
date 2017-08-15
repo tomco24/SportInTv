@@ -4,7 +4,7 @@ import {
     START_LOADING
 
 } from '../actions/types';
-import {convertDate} from '../utils';
+import {convertDate,filterForDate} from '../utils';
 
 const INITIAL_STATE={
     loading:true,
@@ -18,7 +18,13 @@ export default function(state=INITIAL_STATE,action){
                 data:action.payload
             }
         case SELECT_MATCHES_FROM_SPORT_SUCCESS:
-        const data=action.payload.map((match)=>{
+        console.log('TIme:'+action.payload.selectDate*100);
+        const data=action.payload.data.filter((match)=>{
+            console.log(match.date);
+            return filterForDate(match.date,action.payload.selectDate)
+            //return true;
+        })
+        data=data.map((match)=>{
             match.date=convertDate(match.date)
             return match;
         })
